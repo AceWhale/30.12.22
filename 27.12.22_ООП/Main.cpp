@@ -34,9 +34,21 @@ int main()
 					fail = true;
 			}
 			if (fail)
-				cout << "Игрок " << arr[i]->GetName() << " не прошёл испытание " << arr1[j]->TypeCompetition() << " (испытание №" << j+1 << ")\n";
+			{
+				cout << "Игрок " << arr[i]->GetName() << " не прошёл испытание " << arr1[j]->TypeCompetition() << " (испытание №" << j + 1 << ")\n";
+				if (arr1[j]->TypeCompetition() == "Wall")
+				{
+					cout << "Игрок " << arr[i]->GetName() << " может прыгнуть в высоту " << arr[i]->GetJump() << " м, а высота стены " << arr1[j]->GetCompetition()
+						<< " м\n\n";
+				}
+				else
+				{
+					cout << "Игрок " << arr[i]->GetName() << " может пробежать " << arr[i]->GetDistance() << " км, а общая дистания этого испытания " << score
+						<< " км\n\n";
+				}
+			}
 		}
 		if (!fail)
-			cout << "Игрок " << arr[i]->GetName() << " прошёл все испытания\n";
+			cout << "Игрок " << arr[i]->GetName() << " прошёл все испытания\n\n";
 	}
 }
